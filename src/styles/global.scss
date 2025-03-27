@@ -1,0 +1,204 @@
+@import 'variables';
+
+// Import fonts
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap');
+
+// Modern CSS Reset
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: $font-primary;
+  line-height: 1.6;
+  color: $text-primary;
+  background-color: $background;
+  overflow-x: hidden;
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture, video, canvas {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-secondary;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+a {
+  color: $secondary;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: lighten($secondary, 15%);
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 120px 0;
+  position: relative;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 80px 0;
+  }
+}
+
+section {
+  position: relative;
+  width: 100%;
+  
+  & + section {
+    margin-top: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+}
+
+// Utility classes
+.text-gradient {
+  background: $gradient-primary;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-accent {
+  color: $accent;
+}
+
+.text-secondary {
+  color: $secondary;
+}
+
+.blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: $z-modal-backdrop;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity $transition-medium;
+  
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+// Glowing effect
+.glow {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: $shadow-glow;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity $transition-medium;
+    pointer-events: none;
+    z-index: $z-negative;
+  }
+  
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $background-light;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary-dark;
+  border-radius: 5px;
+  
+  &:hover {
+    background: $primary;
+  }
+} 

@@ -1,0 +1,308 @@
+@import '../../styles/variables';
+
+.timeline {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+  background-color: transparent;
+  
+  &__header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+    
+    .section-title {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      margin-bottom: 15px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      
+      .text-gradient {
+        background: $gradient-primary;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+    
+    .section-subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.25rem);
+      color: $text-secondary;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  }
+  
+  &__wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  &__container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0 auto;
+    max-width: 850px;
+  }
+  
+  &__line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background: linear-gradient(to bottom, rgba($primary, 0.3), $primary, rgba($primary, 0.3));
+    transform: translateX(-50%);
+    z-index: 1;
+    
+    @media (max-width: 768px) {
+      left: 20px;
+    }
+  }
+  
+  &__events {
+    position: relative;
+    z-index: 2;
+  }
+  
+  &__event {
+    margin-bottom: 80px;
+    position: relative;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    &--left {
+      align-self: flex-start;
+      margin-right: 50%;
+      padding-right: 50px;
+      text-align: right;
+      
+      @media (max-width: 768px) {
+        margin-right: 0;
+        margin-left: 50px;
+        padding-right: 0;
+        text-align: left;
+      }
+    }
+    
+    &--right {
+      align-self: flex-end;
+      margin-left: 50%;
+      padding-left: 50px;
+      
+      @media (max-width: 768px) {
+        margin-left: 50px;
+      }
+    }
+  }
+  
+  &__marker {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: $background;
+    border: 4px solid;
+    position: absolute;
+    top: 30px;
+    left: -65px;
+    z-index: 3;
+    box-shadow: 0 0 0 4px rgba($background, 0.3);
+    
+    &:before {
+      content: 'ABBS';
+      position: absolute;
+      font-size: 8px;
+      font-weight: bold;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: $gradient-primary;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .timeline__event--left & {
+      left: auto;
+      right: -65px;
+      
+      @media (max-width: 768px) {
+        left: -65px;
+        right: auto;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      left: -45px;
+    }
+  }
+  
+  &__card {
+    background: rgba($background-light, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+  }
+  
+  &__card-inner {
+    padding: 25px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  &__card-bg {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    opacity: 0.07;
+    border-radius: 30% 70% 50% 30% / 30% 30% 70% 70%;
+    z-index: 0;
+  }
+  
+  &__date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .timeline__event--left &__date {
+    flex-direction: row-reverse;
+    
+    @media (max-width: 768px) {
+      flex-direction: row;
+    }
+  }
+  
+  &__quarter {
+    font-weight: 600;
+    font-size: 14px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: $background-light;
+  }
+  
+  &__year {
+    font-size: 14px;
+    color: $text-secondary;
+  }
+  
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  &__description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: $text-secondary;
+  }
+  
+  &__cta {
+    text-align: center;
+    margin-top: 60px;
+    position: relative;
+    z-index: 2;
+    
+    p {
+      font-size: 18px;
+      margin-bottom: 16px;
+      color: $text-secondary;
+    }
+  }
+  
+  &__cta-button {
+    display: inline-block;
+    background: $gradient-primary;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba($primary, 0.3);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      box-shadow: 0 8px 25px rgba($primary, 0.5);
+    }
+  }
+
+  &__floating-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  &__shape {
+    position: absolute;
+    border-radius: 40%;
+    opacity: 0.25;
+    filter: blur(20px);
+    
+    &--1 {
+      width: 250px;
+      height: 250px;
+      background: rgba($primary, 0.5);
+      top: 15%;
+      right: -70px;
+      animation: floatTimelineShape 10s ease-in-out infinite;
+    }
+    
+    &--2 {
+      width: 180px;
+      height: 180px;
+      background: rgba($secondary, 0.5);
+      bottom: 20%;
+      left: -50px;
+      animation: floatTimelineShape 8s ease-in-out infinite reverse;
+    }
+    
+    &--3 {
+      width: 120px;
+      height: 120px;
+      background: rgba($accent, 0.5);
+      top: 60%;
+      right: 15%;
+      animation: floatTimelineShape 12s ease-in-out infinite 1s;
+    }
+    
+    &--4 {
+      width: 150px;
+      height: 150px;
+      background: rgba($primary-dark, 0.5);
+      top: 25%;
+      left: 10%;
+      animation: floatTimelineShape 9s ease-in-out infinite 2s;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    padding: 80px 0;
+  }
+} 

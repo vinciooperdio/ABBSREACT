@@ -1,0 +1,786 @@
+@import '../../styles/variables';
+
+.mission {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+  
+  &__header {
+    text-align: center;
+    margin-bottom: 30px;
+    
+    h2 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 15px;
+      line-height: 1.2;
+      
+      .text-gradient {
+        background: $gradient-primary;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+    
+    .mission__subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      color: $text-secondary;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  }
+  
+  &__section-title {
+    display: flex;
+    align-items: center;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    justify-content: center;
+    
+    .title-icon {
+      font-size: 1.5rem;
+      margin-right: 10px;
+      color: $primary;
+    }
+    
+    .text-gradient {
+      background: $gradient-primary;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-left: 8px;
+    }
+  }
+  
+  &__transformation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+    
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+    }
+  }
+  
+  // Benefits section styles
+  &__benefits-section {
+    margin: 30px 0 40px;
+    
+    h3 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+  }
+  
+  &__benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    
+    @media (max-width: $breakpoint-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &__benefit-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: $border-radius-md;
+    padding: 30px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100%;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    
+    .benefit-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: $gradient-primary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      
+      svg {
+        color: white;
+        font-size: 1.8rem;
+      }
+    }
+    
+    h4 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    
+    p {
+      color: $text-secondary;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+  }
+  
+  &__before, &__after {
+    flex: 0 0 calc(50% - 40px);
+    max-width: 550px;
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: $border-radius-lg;
+    padding: 35px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 40px;
+      min-height: auto;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  
+  &__phase-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    
+    svg {
+      font-size: 1.8rem;
+      margin-right: 15px;
+    }
+    
+    h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+  
+  &__before {
+    .mission__phase-title {
+      svg {
+        color: $accent;
+      }
+    }
+  }
+  
+  &__after {
+    .mission__phase-title {
+      svg {
+        color: $primary;
+      }
+    }
+  }
+  
+  &__chaos-container {
+    position: relative;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    min-height: 460px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    
+    .mission__chaos-subscriptions {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 10px;
+    }
+    
+    .mission__chaos-subscription {
+      background: white;
+      border-radius: 16px;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      transition: all 0.3s ease;
+      position: relative;
+      
+      &:hover {
+        transform: scale(1.05) rotate(0deg) !important;
+        z-index: 10 !important;
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+      }
+      
+      .subscription-icon {
+        font-size: 2rem;
+        margin-right: 18px;
+        
+        &.netflix { color: #E50914; }
+        &.spotify { color: #1DB954; }
+        &.amazon { color: #FF9900; }
+        &.icloud { color: #3498DB; }
+        &.fitness { color: #E74C3C; }
+        &.office { color: #D83B01; }
+      }
+      
+      .subscription-details {
+        flex: 1;
+        
+        .subscription-name {
+          display: block;
+          font-weight: 700;
+          font-size: 1.1rem;
+          margin-bottom: 6px;
+        }
+        
+        .subscription-cost {
+          display: block;
+          font-size: 0.95rem;
+          color: $text-secondary;
+        }
+        
+        .subscription-date {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          
+          .date-indicator {
+            font-size: 0.8rem;
+            color: $text-secondary;
+          }
+          
+          .date-value {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: $accent;
+          }
+        }
+      }
+    }
+    
+    .mission__chaos-problem {
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba($text-primary, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      
+      .problem-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 12px 15px;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+          transform: translateX(5px);
+        }
+        
+        .problem-icon {
+          color: $accent;
+          font-size: 1.3rem;
+        }
+        
+        span {
+          font-size: 0.95rem;
+          font-weight: 500;
+          color: $text-secondary;
+        }
+      }
+    }
+  }
+  
+  &__organized-container {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  &__phone-mockup {
+    position: relative;
+    z-index: 1;
+    
+    .phone-frame {
+      background: #111;
+      border-radius: 36px;
+      padding: 12px;
+      margin: 0 auto;
+      width: 280px;
+      height: 560px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150px;
+        height: 24px;
+        background: #111;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        z-index: 2;
+      }
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 6px;
+        background: #222;
+        border-radius: 3px;
+        z-index: 3;
+      }
+    }
+    
+    .phone-screen {
+      background: rgba($background, 0.95);
+      height: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    
+      .app-header {
+        background: $gradient-primary;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        
+        .app-tabs-header {
+          display: flex;
+          margin-bottom: 12px;
+          
+          .app-tab-button {
+            flex: 1;
+            text-align: center;
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            color: rgba(white, 0.7);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            
+            &.active {
+              background: rgba(white, 0.15);
+              color: white;
+              font-weight: 600;
+            }
+          }
+        }
+        
+        .app-info {
+          display: flex;
+          flex-direction: column;
+        
+          .app-logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white;
+          }
+          
+          .app-tagline {
+            font-size: 0.8rem;
+            color: rgba(white, 0.8);
+          }
+        }
+      }
+      
+      .app-content {
+        flex: 1;
+        padding: 15px;
+        overflow-y: auto;
+        
+        &::-webkit-scrollbar {
+          width: 4px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+          background: rgba($primary, 0.3);
+          border-radius: 2px;
+        }
+      }
+      
+      .app-subscription-item {
+        background: white;
+        border-radius: 12px;
+        padding: 12px 15px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        
+        .subscription-icon {
+          font-size: 1.5rem;
+          margin-right: 12px;
+          
+          &.netflix { color: #E50914; }
+          &.spotify { color: #1DB954; }
+          &.amazon { color: #FF9900; }
+          &.icloud { color: #3498DB; }
+          &.fitness { color: #E74C3C; }
+          &.office { color: #D83B01; }
+        }
+        
+        .item-details {
+          flex: 1;
+          
+          .item-name {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+          }
+          
+          .item-cost {
+            display: block;
+            font-size: 0.75rem;
+            color: $text-secondary;
+          }
+        }
+        
+        .item-date {
+          background: rgba($secondary, 0.15);
+          color: $secondary;
+          font-weight: 600;
+          font-size: 0.75rem;
+          border-radius: 12px;
+          padding: 4px 8px;
+        }
+      }
+      
+      .app-tabs {
+        display: flex;
+        justify-content: space-between;
+        background: white;
+        padding: 10px 5px;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        
+        .app-tab {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          flex: 1;
+          
+          svg {
+            font-size: 1.2rem;
+            color: $primary;
+            margin-bottom: 4px;
+          }
+          
+          span {
+            font-size: 0.6rem;
+            font-weight: 500;
+            color: $text-secondary;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  
+  // Sezione mappa dei servizi
+  &__map-section {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: $border-radius-lg;
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: visible !important;
+    
+    @media (max-width: $breakpoint-md) {
+      padding: 25px 20px;
+    }
+  }
+  
+  &__map-header {
+    text-align: center;
+    margin-bottom: 40px;
+    
+    h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      
+      .text-gradient {
+        background: $gradient-primary;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+    
+    p {
+      font-size: 1.1rem;
+      color: $text-secondary;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  }
+  
+  &__map-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    position: relative !important;
+    z-index: 1 !important;
+    overflow: visible !important;
+    
+    @media (max-width: $breakpoint-lg) {
+      flex-direction: column;
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      gap: 15px;
+    }
+  }
+  
+  &__interactive-map {
+    flex: 1;
+    min-height: 500px !important;
+    min-width: 300px;
+    border-radius: $border-radius-md;
+    overflow: visible !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    position: relative !important;
+    z-index: 10 !important;
+    
+    /* Fix per problemi di visualizzazione mappa a larghezza specifica */
+    @media (max-width: 990px) {
+      height: 450px !important;
+      min-height: 450px !important;
+      width: 100% !important;
+      display: block !important;
+      visibility: visible !important;
+      position: relative !important;
+      z-index: 10 !important;
+      order: -1 !important;
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      height: 400px !important;
+      min-height: 400px !important;
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      height: 350px !important;
+      min-height: 350px !important;
+      margin-bottom: 25px !important;
+    }
+    
+    /* Ensure the map container is created properly */
+    & > div {
+      width: 100% !important;
+      height: 100% !important;
+      display: block !important;
+      visibility: visible !important;
+    }
+  }
+  
+  &__nearby-services {
+    flex: 0 0 350px;
+    
+    @media (max-width: $breakpoint-lg) {
+      flex: 1;
+    }
+    
+    @media (max-width: 990px) {
+      order: 0 !important;
+      width: 100%;
+    }
+    
+    h4 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: $text-primary;
+    }
+    
+    .services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      
+      @media (max-width: $breakpoint-lg) {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+      
+      @media (max-width: 990px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      
+      @media (max-width: $breakpoint-sm) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    
+    .service-card {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: $border-radius-md;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        background: rgba(255, 255, 255, 0.08);
+      }
+      
+      &--active {
+        border-color: $primary;
+        background: rgba($primary, 0.05);
+        box-shadow: 0 10px 20px rgba($primary, 0.1);
+      }
+      
+      .service-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        background: $gradient-primary;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-right: 15px;
+        flex-shrink: 0;
+      }
+      
+      .service-details {
+        flex: 1;
+        
+        h5 {
+          font-size: 1.1rem;
+          font-weight: 600;
+          margin-bottom: 5px;
+        }
+        
+        .service-meta {
+          display: flex;
+          gap: 15px;
+          margin-bottom: 5px;
+          font-size: 0.9rem;
+          color: $text-secondary;
+          
+          .service-distance,
+          .service-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+          }
+        }
+        
+        .service-price {
+          font-size: 1rem;
+          font-weight: 600;
+          color: $primary;
+        }
+      }
+      
+      .service-action {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: $primary;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          transform: scale(1.1);
+          background: rgba($primary, 0.8);
+        }
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes pulseAlong {
+  0% {
+    opacity: 0;
+    transform: scale(0) translate(0, -50%);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1) translate(0, -50%);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1) translate(-300px, -50%);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes floatMissionShape {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(35px, 35px) rotate(8deg);
+  }
+} 

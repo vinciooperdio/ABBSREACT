@@ -1,0 +1,29 @@
+@import './styles/variables';
+
+.app {
+  position: relative;
+  min-height: 100vh;
+  background-color: $background;
+}
+
+.main {
+  position: relative;
+  padding-top: $navbar-height;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba($background-light, 0.01) 0%,
+      rgba($background, 0.5) 100%
+    );
+    pointer-events: none;
+    z-index: -1;
+  }
+} 

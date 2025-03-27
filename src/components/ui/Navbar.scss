@@ -1,0 +1,131 @@
+@import '../../styles/variables';
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $navbar-height;
+  z-index: $z-fixed;
+  transition: all $transition-medium;
+  
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: $container-max;
+    height: 100%;
+    padding: 0 $container-padding;
+    margin: 0 auto;
+  }
+  
+  &__logo {
+    font-family: $font-secondary;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: $text-primary;
+    text-decoration: none;
+    z-index: $z-fixed + 10;
+    
+    span {
+      background: $gradient-primary;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+  
+  &__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba($background-light, 0.2);
+    border: none;
+    border-radius: 50%;
+    color: $text-primary;
+    cursor: pointer;
+    z-index: $z-fixed + 10;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: background-color $transition-fast;
+    
+    &:hover {
+      background: rgba($background-light, 0.3);
+    }
+  }
+  
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($background, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: $z-fixed;
+  }
+  
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    max-width: 80vw;
+    height: 100vh;
+    background: rgba($background-light, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 80px 2rem 2rem;
+    z-index: $z-fixed + 5;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    
+    @media (max-width: $breakpoint-sm) {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  
+  &__menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  &__menu-item {
+    margin-bottom: 1.2rem;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__menu-link {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: $text-primary;
+    text-decoration: none;
+    padding: 0.7rem 0;
+    transition: color $transition-fast;
+    
+    &:hover {
+      color: $primary;
+    }
+  }
+  
+  // Stile quando la navbar ha fatto scroll
+  &--scrolled {
+    background: rgba($background-light, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    
+    .navbar__toggle {
+      background: rgba($background-dark, 0.2);
+    }
+  }
+} 

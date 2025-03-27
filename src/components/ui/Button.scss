@@ -1,0 +1,183 @@
+@import '../../styles/variables';
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  border-radius: $border-radius-md;
+  transition: all $transition-medium;
+  font-weight: 600;
+  overflow: hidden;
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  white-space: nowrap;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: transparent;
+    z-index: 0;
+    transition: all $transition-medium;
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  
+  &:hover::before {
+    transform: translateY(0);
+    opacity: 0.2;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+  
+  &__text, &__icon {
+    position: relative;
+    z-index: 1;
+  }
+  
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  // Variants
+  &--primary {
+    background: $gradient-primary;
+    color: $text-primary;
+    
+    &:hover {
+      box-shadow: $shadow-md;
+    }
+    
+    &::before {
+      background-color: lighten($primary, 10%);
+    }
+  }
+  
+  &--secondary {
+    background-color: $secondary;
+    color: $background;
+    
+    &:hover {
+      box-shadow: $shadow-md;
+    }
+    
+    &::before {
+      background-color: darken($secondary, 10%);
+    }
+  }
+  
+  &--accent {
+    background-color: $accent;
+    color: $text-primary;
+    
+    &:hover {
+      box-shadow: $shadow-md;
+    }
+    
+    &::before {
+      background-color: darken($accent, 10%);
+    }
+  }
+  
+  &--outline {
+    background-color: transparent;
+    color: $text-primary;
+    border: 2px solid $primary;
+    
+    &::before {
+      background-color: rgba($primary, 0.1);
+    }
+    
+    &:hover {
+      border-color: $secondary;
+    }
+  }
+  
+  &--text {
+    background-color: transparent;
+    color: $text-primary;
+    padding: 0.5rem 0.75rem;
+    
+    &::before {
+      background-color: rgba($primary, 0.1);
+    }
+  }
+  
+  // Sizes
+  &--sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  &--md {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  &--lg {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+  }
+  
+  // States
+  &--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    
+    &:hover {
+      box-shadow: none;
+      transform: none;
+    }
+    
+    &::before {
+      display: none;
+    }
+  }
+  
+  &--full-width {
+    width: 100%;
+  }
+  
+  // Icon positioning
+  &--with-icon {
+    .button__icon {
+      font-size: 1.2em;
+    }
+  }
+  
+  &--icon-left {
+    .button__icon {
+      margin-right: 0.5rem;
+    }
+  }
+  
+  &--icon-right {
+    .button__icon {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+// Animation for button
+@keyframes buttonPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba($primary, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba($primary, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba($primary, 0);
+  }
+}
+
+.button--primary.glow {
+  animation: buttonPulse 2s infinite;
+} 

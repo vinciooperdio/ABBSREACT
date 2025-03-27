@@ -1,0 +1,59 @@
+// Colors
+$primary: #4B45CE; // Viola primario aggiornato
+$primary-dark: #3A35A0; // Versione più scura del primario
+$secondary: #00C2FF; // Electric blue
+$accent: #FF6B6B; // Vibrant coral
+$error: #FF3333; // Colore per errori
+$background: #EDEDED; // Sfondo grigio chiaro
+$background-light: #F8F8F8; // Bianco/grigio molto chiaro
+$background-dark: #DADADA; // Grigio leggermente più scuro per contrasto
+$text-primary: #333333; // Testo scuro per sfondo chiaro
+$text-secondary: rgba(51, 51, 51, 0.7); // Testo secondario
+$text-muted: rgba(51, 51, 51, 0.5); // Testo attenuato
+$gradient-primary: linear-gradient(135deg, $primary, #796BEF); // Gradiente viola
+$gradient-secondary: linear-gradient(135deg, $secondary, lighten($secondary, 15%)); // Gradiente blu
+$gradient-accent: linear-gradient(135deg, $secondary, $accent);
+$gradient-text: linear-gradient(135deg, $primary, #6A64E8);
+
+// Typography
+$font-primary: 'Manrope', sans-serif;
+$font-secondary: 'Questrial', sans-serif;
+$font-monospace: 'Fira Code', monospace;
+
+// Sizes
+$header-height: 80px;
+$navbar-height: 80px; // Aggiunta questa variabile per l'altezza della navbar
+$container-max: 1200px;
+$container-width: 1200px; // Aggiunta questa variabile per la larghezza del container
+$container-padding: 20px; // Padding interno dei container
+$border-radius-sm: 8px;
+$border-radius-md: 12px;
+$border-radius-lg: 24px;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-medium: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Shadows
+$shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.1);
+$shadow-glow: 0 0 20px rgba(108, 58, 239, 0.5);
+
+// Z-indices
+$z-negative: -1;
+$z-elevate: 1;
+$z-dropdown: 1000;
+$z-sticky: 1020;
+$z-fixed: 1030;
+$z-modal-backdrop: 1040;
+$z-modal: 1050;
+$z-popover: 1060;
+$z-tooltip: 1070; 

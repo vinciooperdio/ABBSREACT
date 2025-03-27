@@ -1,0 +1,39 @@
+@import '../../styles/variables';
+
+.section-background {
+  position: relative;
+  overflow: hidden;
+  padding: 60px 0;
+  margin-bottom: 10px;
+  
+  @media (max-width: 768px) {
+    padding: 70px 0;
+    margin-bottom: 20px;
+  }
+  
+  // Mantengo lo stile per le diverse varianti
+  &--primary {
+    background-color: transparent;
+  }
+  
+  &--secondary {
+    background-color: transparent;
+  }
+  
+  &--accent {
+    background-color: transparent;
+  }
+  
+  // Contenuto con z-index elevato
+  &__content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    
+    @media (max-width: 768px) {
+      padding: 0 15px;
+    }
+  }
+} 
